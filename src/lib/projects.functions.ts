@@ -222,8 +222,6 @@ export const deleteProject = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
-import { z } from "zod";
-
 export const projectsQueryOptions = queryOptions({
   queryKey: ["projects"],
   queryFn: () => listProjects(),
