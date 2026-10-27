@@ -9,7 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-# Project: Orbit
+# Project: Devving
 
 A prelaunch directory for crypto projects. Visitors browse upcoming launches;
 signed-in users (Google / Lovable) can list, edit, and delete their own projects.
