@@ -36,7 +36,7 @@ export function SiteHeader() {
     await queryClient.cancelQueries();
     queryClient.clear();
     await supabase.auth.signOut();
-    navigate({ to: "/auth", replace: true });
+    navigate({ to: "/auth", search: {}, replace: true });
   }
 
   const initials = user?.email ? user.email.slice(0, 2).toUpperCase() : "";
@@ -47,7 +47,7 @@ export function SiteHeader() {
         <Wordmark />
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="font-medium">
-            <Link to={user ? "/submit" : "/auth"} search={user ? undefined : { redirect: "/submit" }}>
+            <Link to={user ? "/submit" : "/auth"} search={user ? {} : { redirect: "/submit" }}>
               List your project
             </Link>
           </Button>
@@ -75,7 +75,9 @@ export function SiteHeader() {
             </DropdownMenu>
           ) : (
             <Button asChild variant="ghost" size="sm" className="font-medium">
-              <Link to="/auth">Sign in</Link>
+              <Link to="/auth" search={{}}>
+                Sign in
+              </Link>
             </Button>
           )}
         </div>
