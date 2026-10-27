@@ -36,7 +36,7 @@ export function SiteHeader() {
     await queryClient.cancelQueries();
     queryClient.clear();
     await supabase.auth.signOut();
-    navigate({ to: "/auth", search: {}, replace: true });
+    navigate({ to: "/auth", search: { redirect: undefined }, replace: true });
   }
 
   const initials = user?.email ? user.email.slice(0, 2).toUpperCase() : "";
