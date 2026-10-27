@@ -36,10 +36,10 @@ export const Route = createFileRoute("/_authenticated/submit")({
   },
   head: () => ({
     meta: [
-      { title: "List your project — Orbit" },
-      { name: "description", content: "List your crypto project on Orbit before launch day." },
-      { property: "og:title", content: "List your project — Orbit" },
-      { property: "og:description", content: "List your crypto project on Orbit." },
+      { title: "List your project — Devving" },
+      { name: "description", content: "List your crypto project on Devving before launch day." },
+      { property: "og:title", content: "List your project — Devving" },
+      { property: "og:description", content: "List your crypto project on Devving." },
       { property: "og:type", content: "website" },
     ],
   }),

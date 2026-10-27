@@ -12,13 +12,13 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Sign in — Orbit" },
+      { title: "Sign in — Devving" },
       {
         name: "description",
-        content: "Sign in to Orbit to list your crypto project before launch day.",
+        content: "Sign in to Devving to list your crypto project before launch day.",
       },
-      { property: "og:title", content: "Sign in — Orbit" },
-      { property: "og:description", content: "Sign in to Orbit to list your crypto project." },
+      { property: "og:title", content: "Sign in — Devving" },
+      { property: "og:description", content: "Sign in to Devving to list your crypto project." },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -89,10 +89,10 @@ function AuthPage() {
     <div className="flex min-h-screen items-center justify-center bg-background px-6">
       <div className="w-full max-w-sm rounded-xl border border-border/80 bg-card p-8 text-center shadow-sm">
         <a href="/" className="font-display text-lg font-semibold tracking-tight text-foreground">
-          orbit<span className="text-muted-foreground">.</span>
+          Devving<span className="text-muted-foreground">.</span>
         </a>
         <h1 className="mt-6 font-display text-2xl font-semibold tracking-tight text-foreground">
-          Sign in to Orbit
+          Sign in to Devving
         </h1>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           List your project, manage your listing, and follow launches.

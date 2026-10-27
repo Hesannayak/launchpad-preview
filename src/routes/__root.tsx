@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Orbit — Crypto projects before they launch" },
+      { title: "Devving — Crypto projects before they launch" },
       {
         name: "description",
         content:
           "A curated directory of crypto projects still in prelaunch. Discover upcoming launches and list your own project.",
       },
-      { name: "author", content: "Orbit" },
-      { property: "og:title", content: "Orbit — Crypto projects before they launch" },
+      { name: "author", content: "Devving" },
+      { property: "og:title", content: "Devving — Crypto projects before they launch" },
       {
         property: "og:description",
         content: "A curated directory of crypto projects still in prelaunch.",
