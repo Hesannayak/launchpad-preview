@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      projects: {
+        Row: {
+          created_at: string
+          description: string
+          dev_x_url: string | null
+          id: string
+          launch_date: string | null
+          logo_url: string | null
+          name: string
+          owner_id: string
+          slug: string
+          tagline: string
+          updated_at: string
+          website_url: string | null
+          x_url: string | null
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          dev_x_url?: string | null
+          id?: string
+          launch_date?: string | null
+          logo_url?: string | null
+          name: string
+          owner_id: string
+          slug: string
+          tagline: string
+          updated_at?: string
+          website_url?: string | null
+          x_url?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          dev_x_url?: string | null
+          id?: string
+          launch_date?: string | null
+          logo_url?: string | null
+          name?: string
+          owner_id?: string
+          slug?: string
+          tagline?: string
+          updated_at?: string
+          website_url?: string | null
+          x_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
