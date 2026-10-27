@@ -33,13 +33,13 @@ export const Route = createFileRoute("/project/$slug")({
     return {
       meta: [
         {
-          title: project ? `${project.name} — Orbit` : "Orbit",
+          title: project ? `${project.name} — Devving` : "Devving",
         },
         {
           name: "description",
-          content: project?.tagline ?? "Discover crypto projects before they launch on Orbit.",
+          content: project?.tagline ?? "Discover crypto projects before they launch on Devving.",
         },
-        { property: "og:title", content: project ? `${project.name} — Orbit` : "Orbit" },
+        { property: "og:title", content: project ? `${project.name} — Devving` : "Devving" },
         {
           property: "og:description",
           content: project?.tagline ?? "Discover crypto projects before they launch.",

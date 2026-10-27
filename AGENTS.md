@@ -30,7 +30,7 @@ Listings publish instantly (no moderation queue).
 - Slugs are generated from the project name and made unique with a random suffix;
   slugs never change after creation (they are the public URL of a listing).
 - Post-sign-in destination: sign-in stores the intended same-origin path under
-  sessionStorage key `orbit-post-auth-redirect` and the root route continues there
+  sessionStorage key `devving-post-auth-redirect` and the root route continues there
   once a session exists. OAuth `redirect_uri` stays `window.location.origin`.
 - Explorer/home is `/` (public, SSR); submit and edit live under the managed
   `_authenticated` gate (`/submit`, with `?edit=<id>` reusing the same form).

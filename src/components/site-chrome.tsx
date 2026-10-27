@@ -21,7 +21,7 @@ export function Wordmark({ className }: { className?: string }) {
       to="/"
       className={`font-display text-lg font-semibold tracking-tight text-foreground ${className ?? ""}`}
     >
-      orbit<span className="text-muted-foreground">.</span>
+      Devving<span className="text-muted-foreground">.</span>
     </Link>
   );
 }
@@ -99,7 +99,7 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-border/70 py-10">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 text-sm text-muted-foreground">
         <span>
-          orbit — crypto, before it launches.
+          Devving — crypto, before it launches.
         </span>
         <span className="hidden sm:inline">© {new Date().getFullYear()}</span>
       </div>

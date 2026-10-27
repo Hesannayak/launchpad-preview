@@ -11,14 +11,14 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Orbit — Discover crypto projects before they launch",
+        title: "Devving — Discover crypto projects before they launch",
       },
       {
         name: "description",
         content:
           "A curated directory of crypto projects still in prelaunch. Browse upcoming launches, follow the builders, and list your own project before launch day.",
       },
-      { property: "og:title", content: "Orbit — Discover crypto projects before they launch" },
+      { property: "og:title", content: "Devving — Discover crypto projects before they launch" },
       {
         property: "og:description",
         content:
@@ -50,7 +50,7 @@ function ExplorerPage() {
             Discover crypto projects before they launch.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Orbit is a curated list of crypto projects still in the works. Browse what&rsquo;s
+            Devving is a curated list of crypto projects still in the works. Browse what&rsquo;s
             coming, follow the builders, and list your own project before launch day.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
