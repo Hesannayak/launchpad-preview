@@ -41,12 +41,17 @@ async function attachLogoUrls(rows: ProjectRow[]): Promise<ProjectSummary[]> {
 
   const signedByUrl = new Map<string, string>();
   if (paths.length > 0) {
+    const storageBase = `${process.env["SUPABASE_URL"]}/storage/v1`;
     const { data } = await createPublicClient()
       .storage.from("project-logos")
       .createSignedUrls(paths, LOGO_URL_TTL_SECONDS);
     for (const item of data ?? []) {
       if (item.path && item.signedURL) {
-        signedByUrl.set(item.path, item.signedURL);
+        // supabase-js can return a relative /object/sign path; resolve it against storage.
+        const absolute = /^https?:\/\//i.test(item.signedURL)
+          ? item.signedURL
+          : `${storageBase}${item.signedURL}`;
+        signedByUrl.set(item.path, absolute);
       }
     }
   }
