@@ -48,7 +48,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           {user ? (
             <Button asChild size="sm" className="font-medium">
-              <Link to="/submit" search={{}}>
+              <Link to="/submit" search={{ edit: undefined }}>
                 List your project
               </Link>
             </Button>
