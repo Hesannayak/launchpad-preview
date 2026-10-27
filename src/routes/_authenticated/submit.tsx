@@ -29,9 +29,10 @@ export const Route = createFileRoute("/_authenticated/submit")({
         ? search["edit"]
         : undefined,
   }),
-  loader: ({ context, search }) => {
-    if (!search.edit) return null;
-    return context.queryClient.ensureQueryData(ownedProjectQueryOptions(search.edit));
+  loader: ({ context, location }) => {
+    const edit = (location.search as { edit?: string }).edit;
+    if (!edit) return null;
+    return context.queryClient.ensureQueryData(ownedProjectQueryOptions(edit));
   },
   head: () => ({
     meta: [
@@ -133,7 +134,7 @@ function SubmitForm({
     event.preventDefault();
     if (!session) {
       toast.error("Please sign in again.");
-      navigate({ to: "/auth", search: {} });
+      navigate({ to: "/auth", search: { redirect: undefined } });
       return;
     }
     setSubmitting(true);

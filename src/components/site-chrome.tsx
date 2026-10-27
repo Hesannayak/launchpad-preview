@@ -46,11 +46,17 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <Wordmark />
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="font-medium">
-            <Link to={user ? "/submit" : "/auth"} search={user ? {} : { redirect: "/submit" }}>
-              List your project
-            </Link>
-          </Button>
+          {user ? (
+            <Button asChild size="sm" className="font-medium">
+              <Link to="/submit">List your project</Link>
+            </Button>
+          ) : (
+            <Button asChild size="sm" className="font-medium">
+              <Link to="/auth" search={{ redirect: "/submit" }}>
+                List your project
+              </Link>
+            </Button>
+          )}
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -75,7 +81,7 @@ export function SiteHeader() {
             </DropdownMenu>
           ) : (
             <Button asChild variant="ghost" size="sm" className="font-medium">
-              <Link to="/auth" search={{}}>
+              <Link to="/auth" search={{ redirect: undefined }}>
                 Sign in
               </Link>
             </Button>

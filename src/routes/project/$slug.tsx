@@ -65,7 +65,7 @@ function ProjectDetailPage() {
   const [deleting, setDeleting] = React.useState(false);
   const isOwner = Boolean(session && session.user.id === project.owner_id);
 
-  async function handleDelete() {
+  const handleDelete = async () => {
     setDeleting(true);
     try {
       await deleteProjectFn({ data: { id: project.id } });
