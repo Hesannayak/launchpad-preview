@@ -1,8 +1,6 @@
-import { useEffect } from "react";
-import { createFileRoute, redirect, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 
 import { supabase } from "@/integrations/supabase/client";
-import { sanitizeRedirectPath } from "@/lib/auth-redirect";
 
 export const Route = createFileRoute("/_authenticated")({
   ssr: false,
@@ -15,6 +13,3 @@ export const Route = createFileRoute("/_authenticated")({
   },
   component: () => <Outlet />,
 });
-
-// Reference useEffect to keep the import used by the gate's client-only context.
-void useEffect;
