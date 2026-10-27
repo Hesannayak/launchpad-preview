@@ -1,6 +1,7 @@
 import * as React from "react";
-import { useQueryClient, useServerFn, useSuspenseQuery } from "@tanstack/react-query";
+import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
@@ -23,9 +24,9 @@ import { projectInputSchema } from "@/lib/schemas";
 export const Route = createFileRoute("/_authenticated/submit")({
   validateSearch: (search: Record<string, unknown>) => ({
     edit:
-      typeof search.edit === "string" &&
-      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(search.edit)
-        ? search.edit
+      typeof search["edit"] === "string" &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(search["edit"])
+        ? search["edit"]
         : undefined,
   }),
   loader: ({ context, search }) => {
@@ -132,7 +133,7 @@ function SubmitForm({
     event.preventDefault();
     if (!session) {
       toast.error("Please sign in again.");
-      navigate({ to: "/auth" });
+      navigate({ to: "/auth", search: {} });
       return;
     }
     setSubmitting(true);

@@ -1,6 +1,7 @@
 import * as React from "react";
-import { useQueryClient, useServerFn, useSuspenseQuery } from "@tanstack/react-query";
+import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, Code2, Globe, Twitter } from "lucide-react";
 import { toast } from "sonner";
 
@@ -25,6 +26,7 @@ export const Route = createFileRoute("/project/$slug")({
   loader: async ({ context, params }) => {
     const data = await context.queryClient.ensureQueryData(projectQueryOptions(params.slug));
     if (!data.project) throw notFound();
+    return data;
   },
   head: ({ loaderData }) => {
     const project = loaderData?.project;

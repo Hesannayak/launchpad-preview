@@ -183,10 +183,11 @@ export const updateProject = createServerFn({ method: "POST" })
       console.error("updateProject failed:", error.message);
       throw new Error("Could not save your changes. Please try again.");
     }
-    if (!updated || updated.length === 0) {
+    const slug = updated?.[0]?.slug;
+    if (!slug) {
       throw new Error("You can only edit your own listings");
     }
-    return { slug: updated[0].slug };
+    return { slug };
   });
 
 export const deleteProject = createServerFn({ method: "POST" })
