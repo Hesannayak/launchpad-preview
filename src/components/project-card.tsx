@@ -106,7 +106,7 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
           <div className="text-sm font-medium tabular-nums text-foreground">
             {formatDate(project.launch_date)}
           </div>
-          <div className="mt-0.5 text-xs text-muted-foreground">
+          <div className="mt-0.5 text-xs font-medium text-primary">
             {launchLabel(project.launch_date)}
           </div>
         </div>

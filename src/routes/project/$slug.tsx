@@ -105,7 +105,7 @@ function ProjectDetailPage() {
             {project.launch_date ? (
               <p className="mt-3 text-sm">
                 <span className="font-medium text-foreground">{formatDate(project.launch_date)}</span>
-                <span className="text-muted-foreground"> · {launchLabel(project.launch_date)}</span>
+                <span className="font-medium text-primary"> · {launchLabel(project.launch_date)}</span>
               </p>
             ) : null}
           </div>
