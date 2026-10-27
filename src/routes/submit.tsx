@@ -22,6 +22,7 @@ import {
 import { projectInputSchema } from "@/lib/schemas";
 
 export const Route = createFileRoute("/submit")({
+  ssr: false,
   validateSearch: (search: Record<string, unknown>) => ({
     edit:
       typeof search["edit"] === "string" &&
@@ -29,9 +30,15 @@ export const Route = createFileRoute("/submit")({
         ? search["edit"]
         : undefined,
   }),
-  loader: ({ context, location }) => {
+  loader: async ({ context, location }) => {
     const edit = (location.search as { edit?: string }).edit;
     if (!edit) return null;
+    // Editing an existing listing still needs a session; viewing the form is public.
+    const { data } = await supabase.auth.getUser();
+    if (!data.user) {
+      const target = location.pathname + (location.searchStr || "");
+      throw redirect({ to: "/auth", search: { redirect: target } });
+    }
     return context.queryClient.ensureQueryData(ownedProjectQueryOptions(edit));
   },
   head: () => ({
