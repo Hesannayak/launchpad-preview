@@ -55,7 +55,7 @@ function ExplorerPage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild className="font-medium">
-              <Link to="/submit">
+              <Link to="/submit" search={{ edit: undefined }}>
                 List your project
               </Link>
             </Button>
@@ -79,7 +79,7 @@ function ExplorerPage() {
             <div className="border-t border-border/70 py-20 text-center">
               <p className="text-muted-foreground">Nothing here yet.</p>
               <Button asChild variant="outline" className="mt-4 font-medium">
-                <Link to="/submit">
+                <Link to="/submit" search={{ edit: undefined }}>
                   List the first project
                 </Link>
               </Button>
