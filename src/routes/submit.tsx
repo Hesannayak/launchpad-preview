@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
@@ -21,7 +21,7 @@ import {
 } from "@/lib/projects.functions";
 import { projectInputSchema } from "@/lib/schemas";
 
-export const Route = createFileRoute("/_authenticated/submit")({
+export const Route = createFileRoute("/submit")({
   validateSearch: (search: Record<string, unknown>) => ({
     edit:
       typeof search["edit"] === "string" &&
@@ -133,8 +133,8 @@ function SubmitForm({
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
     if (!session) {
-      toast.error("Please sign in again.");
-      navigate({ to: "/auth", search: { redirect: undefined } });
+      toast.error("Sign in to publish your listing.");
+      navigate({ to: "/auth", search: { redirect: "/submit" } });
       return;
     }
     setSubmitting(true);
