@@ -54,7 +54,7 @@ export function SiteHeader() {
             </Button>
           ) : (
             <Button asChild size="sm" className="font-medium">
-              <Link to="/auth" search={{ redirect: "/submit" }}>
+              <Link to="/submit">
                 List your project
               </Link>
             </Button>
