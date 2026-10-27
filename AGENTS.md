@@ -32,5 +32,6 @@ Listings publish instantly (no moderation queue).
 - Post-sign-in destination: sign-in stores the intended same-origin path under
   sessionStorage key `devving-post-auth-redirect` and the root route continues there
   once a session exists. OAuth `redirect_uri` stays `window.location.origin`.
-- Explorer/home is `/` (public, SSR); submit and edit live under the managed
-  `_authenticated` gate (`/submit`, with `?edit=<id>` reusing the same form).
+- Explorer/home is `/` (public, SSR). `/submit` is public to view (the "List your
+  project" form); publishing and edit mode (`?edit=<id>`) still require sign-in —
+  edit redirects to `/auth`, and the server functions keep `requireSupabaseAuth`.
